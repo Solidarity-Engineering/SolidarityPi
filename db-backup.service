@@ -1,0 +1,14 @@
+[Unit]
+Description=DB Backup Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi
+ExecStart=/home/pi/bkup-service.sh
+ExecStartPre=/bin/sh -c 'until ping -c1 google.com; do sleep 1; done;'
+
+[Install]
+WantedBy=multi-user.target
