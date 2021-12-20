@@ -17,15 +17,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githu
 sudo apt -y update
 sudo apt -y install gh
 
-# Clone Repo
-gh repo clone Solidarity-Engineering/Solidarity-Pi-Bkups
-gh repo clone Solidarity-Engineering/SolidarityPi
-
-# Setup service
-cp SolidarityPi/bkup-service.sh .
-chmod u+x bkup-service.sh
-sudo cp SolidarityPi/db-backup.service /etc/systemd/system/db-backup.service
-sudo systemctl enable db-backup.service
-sudo systemctl start db-backup.service
-
-echo "Don't forget to generate a ssh key, add it to the GitHub account, and create the service."
+echo "Run the following command in the terminal:"
+echo "    gh auth login"
+echo "and login to the SPi's GitHub account."
